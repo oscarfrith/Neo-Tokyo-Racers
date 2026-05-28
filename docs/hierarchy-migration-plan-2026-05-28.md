@@ -4,7 +4,17 @@
 **Created:** 2026-05-28  
 **Last updated:** 2026-05-28  
 **Source report:** `docs/studio-inventory-report-2026-05-28.md`  
-**Current status:** Planning only / no Roblox hierarchy changes made yet  
+**Current status:** Phase 6 world services migration prepared / Phase 1-5A installed by user  
+
+## Roadmap Note
+
+This document contains the original detailed migration ideas and older phase numbering. For the current compressed phase plan, use:
+
+```text
+docs/compressed-architecture-roadmap-2026-05-28.md
+```
+
+The compressed roadmap supersedes the old phase numbers below. The old sections are still useful as detail notes, but should not be treated as the active sequence.
 
 ## Summary
 
@@ -365,6 +375,33 @@ Do not update all existing scripts to use it yet. First add it as a tool for new
 
 Risk: low if only added, medium once scripts begin using it.
 
+## Phase 2B: Add Live Reference Registry
+
+Prepared script:
+
+```text
+scripts/roblox_hierarchy_phase2_live_references_registry.lua
+```
+
+This script adds a visual bridge layer after Phase 1. It creates ObjectValue references from the new `NeoTokyoRacers` architecture to the current live systems, and adds:
+
+```text
+ReplicatedStorage.NeoTokyoRacers.Compatibility.LiveSystemRegistry
+```
+
+This gives future scripts and future Codex sessions a central map of the live systems without moving anything yet.
+
+It should not:
+
+- Move assets.
+- Rename active scripts.
+- Disable scripts.
+- Delete folders.
+- Touch `Workspace.Test + WIP Assets`.
+- Change driving, UI, VFX, lighting, LOD, traffic lights, or customisation behaviour.
+
+Risk: low. ObjectValue references are inspection/migration aids only.
+
 ## Phase 3: Mirror Configs Into New Structure
 
 Mirror, not move, current editable configs:
@@ -392,6 +429,31 @@ ReplicatedStorage.NeoTokyoRacers.Shared.Config.Vehicles
 The old config folders should remain authoritative until scripts are explicitly switched.
 
 Risk: low if mirrored only.
+
+Prepared script:
+
+```text
+scripts/roblox_hierarchy_phase3_config_registry_mirrors.lua
+```
+
+This script formalises the Phase 3 config bridge. It creates/refines:
+
+```text
+ReplicatedStorage.NeoTokyoRacers.Shared.Config
+ReplicatedStorage.NeoTokyoRacers.Shared.Config.ConfigRegistry
+ReplicatedStorage.NeoTokyoRacers.Shared.Modules.Data.ConfigRegistry
+```
+
+It adds live ObjectValue references to current authoritative config folders and generated `_Mirror` folders for inspection only. The old config remains authoritative until a specific live system is intentionally migrated and play-tested.
+
+It should not:
+
+- Change live config values.
+- Move assets.
+- Rename or disable scripts.
+- Switch live scripts to the new config paths.
+- Touch `Workspace.Test + WIP Assets`.
+- Change driving, UI, VFX, lighting, LOD, traffic lights, or customisation behaviour.
 
 ## Phase 4: Consolidate Lighting Docs/Refs, Then Migrate Lighting
 
@@ -650,6 +712,14 @@ It should not:
 - Delete folders.
 - Touch `Test + WIP Assets`.
 - Change driving, UI, VFX, lighting, or LOD behaviour.
+
+Prepared script:
+
+```text
+scripts/roblox_hierarchy_phase1_architecture_resolver.lua
+```
+
+This script creates the clean future roots, installs `PathResolver`, and mirrors key config folders as generated reference copies only. It is deliberately non-destructive and leaves the current `HOVER_RACING_V2_*` live systems untouched. `StarterGui.NeoTokyoRacersUI` is created as an empty `ScreenGui` so future UI can be visually edited in Studio. World asset roots such as `FarLOD5` and `GeneratedCityBlocks` are recorded as live path references, not duplicated.
 
 ## Validation Checklist After Phase 1-3
 

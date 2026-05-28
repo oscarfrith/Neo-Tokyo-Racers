@@ -24,6 +24,15 @@ desktop.ini
 .codex/
 BACKUPS_*/
 *_Backup_*
+__pycache__/
+*.pyc
+
+# Temporary Roblox Studio export paste blob.
+docs/studio-script-export-paste.txt
+
+# Archived legacy Studio scripts are documented, but their exported mirror paths
+# can exceed Windows/Git path limits and are not needed as live source.
+roblox/exported_scripts/ServerStorage/NeoTokyoRacers_LegacyArchive/
 
 # Keep these project folders tracked
 !/docs/

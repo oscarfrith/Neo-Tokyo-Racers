@@ -1,7 +1,7 @@
 # Day / Night Lighting Preset System
 
 **Created / first designed:** 2026-05-26  
-**Last updated:** 2026-05-26  
+**Last updated:** 2026-05-28  
 **Current status:** Partially working / night sky issue unresolved  
 **Relevant docs file:** `docs/lighting-and-atmosphere.md`  
 **Relevant files to edit:** Lighting preset modules/scripts only. Do not edit vehicle, LOD, or race files unless specifically requested.
@@ -22,13 +22,15 @@ The workflow designed was:
 
 Exact final names TBC.
 
-Known/likely systems:
+Known systems:
 
 ```text
 Lighting preset module/config: TBC
-Temporary lighting output script: TBC
+Temporary lighting output/preview script: StarterPlayer.StarterPlayerScripts.TEMP_LightingPreview
 Lighting condition toggle script: TBC
 ```
+
+`TEMP_LightingPreview` is intentionally kept as a temporary tool for checking and tuning day/night lighting settings. Future cleanup scripts should not treat the `TEMP` prefix on this specific script as accidental clutter.
 
 Known keybinds:
 
@@ -112,6 +114,7 @@ Important design note:
 - Temporary output workflow successfully prints values for copying into presets.
 - Day settings have been captured.
 - Key-based lighting switching exists in some form.
+- `TEMP_LightingPreview` is intentionally retained as a lighting preview/testing tool.
 
 ## Still Needs Testing
 
@@ -128,3 +131,4 @@ Important design note:
 - Do not edit vehicle, LOD, or race files when working on lighting presets.
 - If a lighting script name is `TBC`, inspect Studio before renaming or patching.
 - Treat the skybox issue as unresolved until night mode is verified in Studio or a published client.
+- Do not rename or remove `TEMP_LightingPreview` during general cleanup unless the lighting workflow has been replaced by a cleaner tool.

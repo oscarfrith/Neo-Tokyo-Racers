@@ -1,0 +1,72 @@
+# Manual Script Copy Map
+
+**Created:** 2026-05-28  
+**Status:** Current script mirror folders created  
+**Current mirror root:** `roblox/exported_scripts`
+
+## Current Best Option
+
+The Studio export has already been imported into:
+
+```text
+roblox/exported_scripts
+```
+
+So you do not need to manually copy the scripts for this round. The exact Studio-to-file mapping is here:
+
+```text
+roblox/exported_scripts/MANIFEST.md
+roblox/exported_scripts/manifest.json
+```
+
+Use those files as the source of truth for where each script lives in GitHub.
+
+## If You Ever Copy Manually
+
+Copy each Roblox Studio script source into the matching file under `roblox/exported_scripts`, keeping this convention:
+
+```text
+ModuleScript -> .module.lua
+LocalScript  -> .client.lua
+Script       -> .server.lua
+```
+
+Example:
+
+```text
+Studio:
+ReplicatedStorage.HOVER_RACING_V2_KIT.CLIENT_MODULES.Controllers.DrivingControllerV47
+
+GitHub:
+roblox/exported_scripts/ReplicatedStorage/HOVER_RACING_V2_KIT/CLIENT_MODULES/Controllers/DrivingControllerV47.module.lua
+```
+
+## Main Live Scripts To Keep Fresh
+
+These are the most important active gameplay scripts to refresh after major Studio changes:
+
+```text
+ServerScriptService.HOVER_RACING_V2_SERVER.HOVER_RACING_V2_Server
+ServerScriptService.HOVER_RACING_V2_SERVER.HOVER_RACING_V2_DriverSeatPosition
+StarterPlayer.StarterPlayerScripts.HOVER_RACING_V2_Client
+StarterPlayer.StarterPlayerScripts.HOVER_RACING_V67_MobileDriveControls
+StarterPlayer.StarterPlayerScripts.HOVER_RACING_V71_MobilePcHudSuppressor
+StarterPlayer.StarterPlayerScripts.LOD System
+StarterPlayer.StarterPlayerScripts.TEMP_LightingPreview
+```
+
+Important active module roots:
+
+```text
+ReplicatedStorage.HOVER_RACING_V2_KIT.CLIENT_MODULES
+ReplicatedStorage.HOVER_RACING_V2_KIT.SHARED_MODULES
+ReplicatedStorage.Shared.LightingPresets
+ReplicatedStorage.NeoTokyoRacers
+```
+
+## Safety Notes
+
+- `roblox/exported_scripts` is a GitHub-readable mirror, not automatic live sync.
+- Studio is still the live source of truth until a Rojo/source-sync migration is explicitly planned.
+- If Codex edits files under `roblox/exported_scripts`, those edits still need a Studio command-bar patch or manual paste back into Roblox Studio.
+- Do not copy assets from `Workspace.Test + WIP Assets` into the main mirror unless you intentionally decide to include WIP/test assets.
