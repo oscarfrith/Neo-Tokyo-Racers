@@ -20,6 +20,10 @@ When using this document with Codex:
 
 ## System Index
 
+Architecture planning:
+
+- [architecture-reorganisation-plan.md](architecture-reorganisation-plan.md)
+
 | System | Status | Last updated | Detailed doc |
 | --- | --- | --- | --- |
 | Hover Racing Vehicle / Driver Seat System | Implemented / needs wider testing | 2026-05-26 | [vehicle-systems.md](vehicle-systems.md) |
