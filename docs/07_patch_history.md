@@ -2,6 +2,10 @@
 
 This is a high-level summary, not a complete changelog of every script.
 
+## Documentation
+
+- 2026-05-28: Added dated current mechanics docs covering vehicle, lighting, LOD, traffic lights, mobile performance, customisation, UI, race events, and open-world city systems. These docs are a reference layer for future Codex/ChatGPT sessions and should not be treated as permission to rewrite unrelated systems.
+
 ## Early System
 
 - Initial command-bar scripts created starter folders, template parts, module categories, UI, money, and a short checkpoint race.
@@ -40,4 +44,3 @@ This is a high-level summary, not a complete changelog of every script.
 
 - `scripts/roblox_hover_racing_v74_pre_v72_camera_assist.lua`
 - `scripts/roblox_hover_racing_v75_boost_delay_hover_wobble.lua`
-

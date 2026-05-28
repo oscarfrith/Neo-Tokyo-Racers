@@ -31,6 +31,7 @@ Recommended baseline:
 
 ## Quick Links
 
+- Current mechanics index: `docs/current-mechanics.md`
 - Game overview: `docs/01_game_overview.md`
 - Vehicle folders/assets: `docs/02_vehicle_folder_system.md`
 - Driving mechanics: `docs/03_driving_mechanics.md`
