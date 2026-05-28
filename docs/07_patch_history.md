@@ -7,6 +7,7 @@ This is a high-level summary, not a complete changelog of every script.
 - 2026-05-28: Added dated current mechanics docs covering vehicle, lighting, LOD, traffic lights, mobile performance, customisation, UI, race events, and open-world city systems. These docs are a reference layer for future Codex/ChatGPT sessions and should not be treated as permission to rewrite unrelated systems.
 - 2026-05-28: Added target architecture reorganisation plan and Studio inventory report script for planning a safe future hierarchy migration.
 - 2026-05-28: Added a dedicated Studio inventory report paste document for long Roblox Explorer hierarchy reports.
+- 2026-05-28: Added hierarchy migration plan based on the pasted Studio inventory, with `Test + WIP Assets` explicitly excluded from migration.
 
 ## Early System
 

@@ -4,7 +4,7 @@
 **Created:** 2026-05-28  
 **Last updated:** 2026-05-28  
 **Source script:** `scripts/roblox_studio_inventory_report_v1.lua`  
-**Current status:** Waiting for pasted report output  
+**Current status:** Report pasted / ready for analysis  
 
 ## How To Use This File
 
@@ -36,11 +36,7 @@ Paste them into the report block below in order. It is fine if the result is ver
 
 ## Inventory Report Paste Area
 
-Paste the full report below this line:
-
-```text
-PASTE INVENTORY REPORT HERE
-```
+Report begins below this line.
 
 # Neo Tokyo Racers Studio Inventory Report
 

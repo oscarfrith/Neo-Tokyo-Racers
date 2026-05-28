@@ -23,6 +23,8 @@ When using this document with Codex:
 Architecture planning:
 
 - [architecture-reorganisation-plan.md](architecture-reorganisation-plan.md)
+- [hierarchy-migration-plan-2026-05-28.md](hierarchy-migration-plan-2026-05-28.md)
+- [studio-inventory-report-2026-05-28.md](studio-inventory-report-2026-05-28.md)
 
 | System | Status | Last updated | Detailed doc |
 | --- | --- | --- | --- |

@@ -526,6 +526,13 @@ Before writing any migration script, collect:
 - Lighting/post-processing objects.
 - World roots such as city blocks, traffic lights, LOD folders, race routes, and garages.
 
+The current inventory snapshot and migration plan are now recorded in:
+
+```text
+docs/studio-inventory-report-2026-05-28.md
+docs/hierarchy-migration-plan-2026-05-28.md
+```
+
 ## Codex Safety Notes
 
 - This document is a target plan, not permission to migrate everything at once.
