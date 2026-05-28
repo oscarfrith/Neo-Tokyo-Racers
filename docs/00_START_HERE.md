@@ -55,6 +55,12 @@ Recommended baseline:
 - Phase 13 server parity harness: `docs/phase13-server-parity-harness-2026-05-28.md`
 - Phase 14 server shadow action controller: `docs/phase14-server-shadow-action-controller-2026-05-28.md`
 - Phase 15 server action owner switch: `docs/phase15-server-action-owner-switch-2026-05-28.md`
+- Phase 16 runtime helper owner switch: `docs/phase16-runtime-helper-owner-switch-2026-05-28.md`
+- Phase 17 driver seat owner switch: `docs/phase17-driver-seat-owner-switch-2026-05-28.md`
+- Phase 18 LOD client owner switch: `docs/phase18-lod-client-owner-switch-2026-05-28.md`
+- Phase 19 lighting service owner switch: `docs/phase19-lighting-service-owner-switch-2026-05-28.md`
+- Phase 20 thrust preview owner switch: `docs/phase20-thrust-preview-owner-switch-2026-05-28.md`
+- Phase 21 post-switch architecture audit: `docs/phase21-post-switch-architecture-audit-2026-05-28.md`
 - Compressed architecture roadmap: `docs/compressed-architecture-roadmap-2026-05-28.md`
 
 ## Diagrams

@@ -173,15 +173,29 @@ Each phase may be larger than earlier phases, but each phase must still have one
 Current latest completed script:
 
 ```text
-scripts/roblox_hierarchy_phase15_server_action_owner_switch.lua
+scripts/roblox_hierarchy_phase21_post_switch_audit.lua
 ```
 
 Confirmed result:
 
-- Server action ownership moves to the new architecture shadow controller.
-- Rollback path remains available.
-- Client UI, driving, VFX, mobile controls, LOD, lighting, traffic, and assets are untouched.
+- Post-switch architecture audit passed cleanly.
+- Expected active owners enabled: 11 / 11.
+- Unexpected active scripts: 0.
+- Active scripts inside excluded `Test + WIP Assets`: 0.
+- The only active legacy-named `HOVER_RACING` script is the expected `HOVER_RACING_V2_Client`.
 
 Recommended next phase:
 
-- Phase 16: Runtime owner consolidation. Move mobile HUD/mobile controls/VFX ownership toward the staged runtime controllers without combining it with UI extraction.
+- Commit this checkpoint before attempting the large main client extraction.
+
+Latest script:
+
+```text
+scripts/roblox_hierarchy_phase21_post_switch_audit.lua
+```
+
+Remaining architecture note:
+
+- After Phase 20, the only major live legacy owner expected to remain is the large `HOVER_RACING_V2_Client`. Treat that as a separate extraction project, not a quick owner switch, because it owns garage UI, customisation flow, and driving handoff logic.
+- The Phase 16-21 owner-switch batch is complete. Do not continue with more quick ownership phases in this batch.
+- Next architecture work should be a separate main client extraction plan, focused on `HOVER_RACING_V2_Client` only after this checkpoint is committed.

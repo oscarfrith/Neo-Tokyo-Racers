@@ -35,6 +35,18 @@ This is a high-level summary, not a complete changelog of every script.
 - 2026-05-28: Added `docs/phase14-server-shadow-action-controller-2026-05-28.md` and `scripts/roblox_hierarchy_phase14_server_shadow_action_controller.lua`, creating a disabled shadow server action controller from the verified V56 block without switching live server ownership.
 - 2026-05-28: Added `docs/phase15-server-action-owner-switch-2026-05-28.md` and `scripts/roblox_hierarchy_phase15_server_action_owner_switch.lua`, a controlled server action owner switch with `SWITCH` and `ROLLBACK` modes.
 - 2026-05-28: Phase 15 `SWITCH` was run and tested successfully. Output confirmed the active V56 controller now runs from `GarageActionController_Shadow_Disabled`; Phase 13 hash parity and Phase 13B client `GetInitial` shape checks passed after the switch.
+- 2026-05-28: Added `docs/phase16-runtime-helper-owner-switch-2026-05-28.md` and `scripts/roblox_hierarchy_phase16_runtime_helper_owner_switch.lua`, a controlled runtime helper owner switch for cached thrust VFX, mobile controls, and mobile HUD suppression.
+- 2026-05-28: Phase 16 `SWITCH` was run and tested successfully. Runtime helper ownership moved into `NeoTokyoRacersClient.Controllers.Runtime` without reported gameplay regressions.
+- 2026-05-28: Added `docs/phase17-driver-seat-owner-switch-2026-05-28.md` and `scripts/roblox_hierarchy_phase17_driver_seat_owner_switch.lua`, a controlled driver seat keeper owner switch into the new vehicle service architecture.
+- 2026-05-28: Phase 17 `SWITCH` was run and tested successfully. Driver seat position keeper ownership moved into `NeoTokyoRacers.Services.Vehicle` without reported gameplay regressions.
+- 2026-05-28: Added `docs/phase18-lod-client-owner-switch-2026-05-28.md` and `scripts/roblox_hierarchy_phase18_lod_client_owner_switch.lua`, a controlled LOD client owner switch into the new world controller architecture.
+- 2026-05-28: Phase 18 `SWITCH` was run and tested successfully. LOD client ownership moved into `NeoTokyoRacersClient.Controllers.World` without reported gameplay regressions.
+- 2026-05-28: Added `docs/phase19-lighting-service-owner-switch-2026-05-28.md` and `scripts/roblox_hierarchy_phase19_lighting_service_owner_switch.lua`, a controlled server lighting owner switch into the new world lighting service architecture.
+- 2026-05-28: Phase 19 `SWITCH` was run and tested successfully. Server lighting ownership moved into `NeoTokyoRacers.Services.World.Lighting` without reported gameplay regressions.
+- 2026-05-28: Added `docs/phase20-thrust-preview-owner-switch-2026-05-28.md` and `scripts/roblox_hierarchy_phase20_thrust_preview_owner_switch.lua`, a controlled thrust preview owner switch into the new preview controller architecture.
+- 2026-05-28: Phase 20 `SWITCH` was run and tested successfully. Thrust preview ownership moved into `NeoTokyoRacersClient.Controllers.Preview` without reported gameplay regressions.
+- 2026-05-28: Added `docs/phase21-post-switch-architecture-audit-2026-05-28.md` and `scripts/roblox_hierarchy_phase21_post_switch_audit.lua`, a read-only checkpoint audit for all owner switches completed in Phases 15-20.
+- 2026-05-28: Phase 21 audit passed cleanly: 11/11 expected active owners enabled, no unexpected active scripts, no active scripts in `Test + WIP Assets`, and only the intentionally remaining `HOVER_RACING_V2_Client` legacy owner active.
 
 ## Early System
 
