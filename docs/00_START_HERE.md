@@ -14,6 +14,8 @@ The vehicle system is category-based: cockpits and modules inside the same categ
 
 Known from chat:
 
+- Architecture migration Phases 15-21 were committed after successful testing. Main client extraction Phase A-E later removed the final active legacy-named `HOVER_RACING` owner from live use.
+- Main client extraction Phase A-E has passed. Phase D switched the active main client owner to `StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.NeoTokyoRacersClient_Bootstrap_Shadow_Disabled`; Phase E audit passed cleanly with no active legacy-named `HOVER_RACING` scripts. The old `HOVER_RACING_V2_Client` is disabled and kept as rollback.
 - Phase 15 successfully moved live server action ownership to `ServerScriptService.NeoTokyoRacers.Services.Garage.GarageActionController_Shadow_Disabled`. The old `HOVER_RACING_V2_Server` remains available for rollback but is no longer the live server action owner.
 - `V74` restored the pre-V72/default Roblox driving camera feel and added a light camera assist. The user confirmed this worked well.
 - `V75` was generated next to add boost recharge delay and low-speed hover wobble. At the time of writing, no later user confirmation is present in this chat history.
@@ -61,6 +63,12 @@ Recommended baseline:
 - Phase 19 lighting service owner switch: `docs/phase19-lighting-service-owner-switch-2026-05-28.md`
 - Phase 20 thrust preview owner switch: `docs/phase20-thrust-preview-owner-switch-2026-05-28.md`
 - Phase 21 post-switch architecture audit: `docs/phase21-post-switch-architecture-audit-2026-05-28.md`
+- Main client extraction plan: `docs/main-client-extraction-plan-2026-05-29.md`
+- Main client Phase A core boundary: `docs/main-client-phaseA-core-boundary-2026-05-29.md`
+- Main client Phase B preview/colour modules: `docs/main-client-phaseB-preview-colour-2026-05-29.md`
+- Main client Phase C garage screen controllers: `docs/main-client-phaseC-garage-screens-2026-05-29.md`
+- Main client Phase D owner switch: `docs/main-client-phaseD-owner-switch-2026-05-29.md`
+- Main client Phase E post-switch audit: `docs/main-client-phaseE-post-switch-audit-2026-05-29.md`
 - Compressed architecture roadmap: `docs/compressed-architecture-roadmap-2026-05-28.md`
 
 ## Diagrams

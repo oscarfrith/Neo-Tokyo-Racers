@@ -199,3 +199,4 @@ Remaining architecture note:
 - After Phase 20, the only major live legacy owner expected to remain is the large `HOVER_RACING_V2_Client`. Treat that as a separate extraction project, not a quick owner switch, because it owns garage UI, customisation flow, and driving handoff logic.
 - The Phase 16-21 owner-switch batch is complete. Do not continue with more quick ownership phases in this batch.
 - Next architecture work should be a separate main client extraction plan, focused on `HOVER_RACING_V2_Client` only after this checkpoint is committed.
+- Main client extraction plan created: `docs/main-client-extraction-plan-2026-05-29.md`.
