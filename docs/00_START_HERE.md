@@ -50,6 +50,7 @@ Recommended baseline:
 ## Quick Links
 
 - Current mechanics index: `docs/current-mechanics.md`
+- Prompt pack for ChatGPT/Codex workflows: `prompts/README.md`
 - Architecture reorganisation plan: `docs/architecture-reorganisation-plan.md`
 - Game overview: `docs/01_game_overview.md`
 - Vehicle folders/assets: `docs/02_vehicle_folder_system.md`

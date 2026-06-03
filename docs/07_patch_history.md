@@ -5,6 +5,7 @@ This is a high-level summary, not a complete changelog of every script.
 ## Documentation
 
 - 2026-05-28: Added dated current mechanics docs covering vehicle, lighting, LOD, traffic lights, mobile performance, customisation, UI, race events, and open-world city systems. These docs are a reference layer for future Codex/ChatGPT sessions and should not be treated as permission to rewrite unrelated systems.
+- 2026-06-03: Added `prompts/`, a reusable ChatGPT/Codex prompt pack for session startup, Studio output debugging, feature planning, handoff, commit summaries, and docs database maintenance.
 - 2026-05-29: Added Architecture Phase K command-bar migration plan/script to move `ReplicatedStorage.HOVER_RACING_V2_KIT` into `ReplicatedStorage.NeoTokyoRacers` domains with guarded source preflight.
 - 2026-05-29: Updated Architecture Phase K preflight patching for registry/path-string source references to `00_EDIT_ME_FIRST` and `UI_THEME_DoNotRename`.
 - 2026-05-29: Added Architecture Phase L command-bar deletion gate to verify no live dependencies remain, then destroy `ReplicatedStorage.HOVER_RACING_V2_KIT`.
