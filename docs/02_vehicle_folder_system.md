@@ -2,20 +2,36 @@
 
 ## High-Level Structure
 
-The current system uses a kit in `ReplicatedStorage`:
+The current vehicle asset system lives under `ReplicatedStorage.NeoTokyoRacers`:
 
 ```text
 ReplicatedStorage
-  HOVER_RACING_V2_KIT
-    VEHICLE_CATEGORIES
-      BRUISER
-        COCKPITS
-        MODULES_InterchangeableWithinCategory
-    CLIENT_MODULES
-    CONFIG
+  NeoTokyoRacers
+    Assets
+      Vehicles
+        Categories
+          BRUISER
+            COCKPITS
+            MODULES_InterchangeableWithinCategory
+      VFX
+        VehicleTemplates
+    Config
+      Runtime
+      Editable
+      UI
+        Theme
+        PaintPresets
+    Shared
+      Modules
+        Client
+        Common
+      Remotes
+        Garage
 ```
 
 This structure is based on the later fixed-slot category system, not the older cable-slot system.
+
+Architecture Phase K moved the old kit contents into this layout, and Phase L confirmed `ReplicatedStorage.HOVER_RACING_V2_KIT` is gone.
 
 ## Category Rule
 
@@ -32,10 +48,12 @@ Cockpit assets should contain colour-channel folders or parts for:
 - Front neon/lights
 - Rear neon/lights
 
-Known default cockpit light colours from the chat:
+Known default cockpit front/rear neon colours from the chat:
 
 - Front lights: `Color3.fromRGB(252, 250, 255)`
 - Rear lights: `Color3.fromRGB(255, 116, 116)`
+
+Vehicle Phase AI removes the experimental cockpit SpotLight/Beam/projector systems from Phases S through AH. Front/rear cosmetic neon colour channels can remain, but there should be no current cockpit driving-light runtime, spotlight template folder, or helper LocalScript installed.
 
 ## Module Assets
 
@@ -88,4 +106,3 @@ Known module/cockpit stat attributes used by server/driving logic:
 ## Current Diagrams
 
 - `diagrams/vehicle_asset_system.svg`
-

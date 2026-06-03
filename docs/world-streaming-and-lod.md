@@ -1,8 +1,8 @@
 # Open World LOD / Far Proxy System
 
 **Created / first designed:** Before 2026-04-29  
-**Last updated:** 2026-04-29  
-**Current status:** Implemented / foliage LOD issue previously found  
+**Last updated:** 2026-05-29  
+**Current status:** Implemented / City root migrated / Far LOD5 asset migration prepared  
 **Relevant docs file:** `docs/world-streaming-and-lod.md`  
 **Relevant files to edit:** LOD scripts, LOD folders, foliage proxy setup only. Do not edit vehicle or lighting files unless specifically requested.
 
@@ -24,10 +24,22 @@ Known folders / objects:
 
 ```text
 Workspace
-- GeneratedCityBlocks
+- NeoTokyoRacersWorld
+  - City
+    - Block S#
+      - Block_S#_R#_B#
+
+Workspace
+- GeneratedCityBlocks (legacy fallback root; do not delete yet)
 
 ReplicatedStorage
-- FarLOD5
+- NeoTokyoRacers
+  - Assets
+    - World
+      - FarLOD5Proxies
+
+ReplicatedStorage
+- FarLOD5 (legacy fallback only after Phase J)
 ```
 
 Known script output/name:
@@ -36,7 +48,15 @@ Known script output/name:
 print("LOD Script Running")
 ```
 
-Exact script name TBC.
+Current active script:
+
+```text
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.World.LODClient_Active
+```
+
+The LOD client should resolve `Workspace.NeoTokyoRacersWorld.City` first, with fallback to `Workspace.GeneratedCityBlocks`.
+
+For far proxies, the LOD client should resolve `ReplicatedStorage.NeoTokyoRacers.Assets.World.FarLOD5Proxies` first, with fallback to `ReplicatedStorage.FarLOD5`.
 
 Known config values from the current LOD script as of 2026-04-29:
 
@@ -108,7 +128,7 @@ Design rules:
 
 - The project already has an LOD system.
 - `GeneratedCityBlocks` is the known root folder for city blocks.
-- `FarLOD5` exists in `ReplicatedStorage`.
+- `FarLOD5` originally existed in `ReplicatedStorage`; Phase J prepares migration to `ReplicatedStorage.NeoTokyoRacers.Assets.World.FarLOD5Proxies`.
 - Distance-based LOD logic exists.
 - Hysteresis and update-rate settings exist.
 - Foliage LOD4 workflow has been designed for multiple tree types.

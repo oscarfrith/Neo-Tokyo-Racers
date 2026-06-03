@@ -1,6 +1,6 @@
 # Neo Tokyo Racers Project Context
 
-Last updated: 2026-05-28
+Last updated: 2026-06-03
 
 This folder is the handoff pack for new Codex or ChatGPT sessions. Read this file first, then use the other docs only as needed.
 
@@ -16,6 +16,20 @@ Known from chat:
 
 - Architecture migration Phases 15-21 were committed after successful testing. Main client extraction Phase A-E later removed the final active legacy-named `HOVER_RACING` owner from live use.
 - Main client extraction Phase A-E has passed. Phase D switched the active main client owner to `StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.NeoTokyoRacersClient_Bootstrap_Shadow_Disabled`; Phase E audit passed cleanly with no active legacy-named `HOVER_RACING` scripts. The old `HOVER_RACING_V2_Client` is disabled and kept as rollback.
+- Architecture Phase K completed successfully on 2026-05-29 at 17:31:59 in Studio: `ReplicatedStorage.HOVER_RACING_V2_KIT` contents moved into `ReplicatedStorage.NeoTokyoRacers`, 20 source objects patched, 112 replacements applied, and final legacy source hits were 0.
+- Architecture Phase L completed successfully on 2026-05-29 at 17:35:09 in Studio: migrated folders were present, legacy source/ObjectValue references were 0, and `ReplicatedStorage.HOVER_RACING_V2_KIT` no longer exists.
+- Architecture Phase N completed successfully on 2026-05-29 at 18:36:09 in Studio: 10 source objects patched, 24 replacements applied, stale ObjectValues repaired, `Workspace.NeoTokyoRacersWorld.SpawnPoints.VehicleSpawnPoint` created, and final old runtime source hits were 0.
+- World Phase F is prepared to move city blocks from `Workspace.GeneratedCityBlocks` into `Workspace.NeoTokyoRacersWorld.City.Block S#` and patch the active LOD client root resolver.
+- World Phase J is prepared to move `ReplicatedStorage.FarLOD5` into `ReplicatedStorage.NeoTokyoRacers.Assets.World.FarLOD5Proxies` and patch the active LOD client far-proxy resolver.
+- Cleanup Phase G is a read-only full hierarchy audit for identifying old inactive folders, disabled legacy scripts, rollback scripts, and report folders before any deletion script is generated.
+- Cleanup Phase H is the targeted deletion phase for Phase G's confirmed inactive legacy items. It must be run in `DRY_RUN` first, then `DELETE` only after reviewing the exact path list.
+- Cleanup Phase I is an aggressive one-step migration clutter cleanup. It deletes stale reports, reference ObjectValues, mirror-only generated config, non-live scaffold/shadow/snapshot code, and empty placeholder folders after confirming active owners are healthy.
+- Cleanup Phase M is a post-K/L read-only audit for stale legacy kit references, empty compatibility folders, old reports, nil ObjectValues, and remaining cleanup candidates after `HOVER_RACING_V2_KIT` removal.
+- Cleanup Phase O completed successfully. Final Phase M verification at 2026-05-29 18:55:53 showed 0 warnings, 0 missing required paths, 0 source legacy hits, 0 stale ObjectValues, 0 auto cleanup candidates, and 0 review-before-delete candidates.
+- Architecture Phase P is present in the Git repo as the conservative first garage runtime startup repair, but it is superseded by Phase Q if the line 23 garage controller error remains.
+- Architecture Phase Q repaired the post-Phase-N/P garage startup regression where `GarageActionController_Shadow_Disabled` errors near line 23 and the garage UI does not load. The user reported Phase Q worked.
+- Lighting Phase R is prepared to repair `Fogcolor` typo warnings by changing lighting presets to Roblox's valid `FogColor` property and adding a compatibility alias in `LightingService_Active`.
+- Vehicle Phase AI removes/deprioritises the cockpit car-light experiments from Phases S through AH. No cockpit SpotLight, Beam, smoother, projector, or diagnostic runtime should be considered current. Ordinary cosmetic neon colour channels remain.
 - Phase 15 successfully moved live server action ownership to `ServerScriptService.NeoTokyoRacers.Services.Garage.GarageActionController_Shadow_Disabled`. The old `HOVER_RACING_V2_Server` remains available for rollback but is no longer the live server action owner.
 - `V74` restored the pre-V72/default Roblox driving camera feel and added a light camera assist. The user confirmed this worked well.
 - `V75` was generated next to add boost recharge delay and low-speed hover wobble. At the time of writing, no later user confirmation is present in this chat history.
@@ -69,6 +83,20 @@ Recommended baseline:
 - Main client Phase C garage screen controllers: `docs/main-client-phaseC-garage-screens-2026-05-29.md`
 - Main client Phase D owner switch: `docs/main-client-phaseD-owner-switch-2026-05-29.md`
 - Main client Phase E post-switch audit: `docs/main-client-phaseE-post-switch-audit-2026-05-29.md`
+- World Phase F city hierarchy and LOD migration: `docs/world-phaseF-city-hierarchy-lod-migration-2026-05-29.md`
+- World Phase J Far LOD5 assets migration: `docs/world-phaseJ-far-lod5-assets-migration-2026-05-29.md`
+- Architecture Phase K kit migration: `docs/architecture-phaseK-hover-kit-migration-2026-05-29.md`
+- Architecture Phase L final kit removal: `docs/architecture-phaseL-final-hover-kit-removal-2026-05-29.md`
+- Architecture Phase N runtime world path repair: `docs/architecture-phaseN-runtime-world-path-repair-2026-05-29.md`
+- Architecture Phase P garage runtime startup repair: `docs/architecture-phaseP-garage-runtime-startup-repair-2026-06-02.md`
+- Architecture Phase Q garage controller header repair: `docs/architecture-phaseQ-garage-controller-header-repair-2026-06-02.md`
+- Lighting Phase R FogColor property repair: `docs/lighting-phaseR-fogcolor-property-repair-2026-06-02.md`
+- Vehicle Phase AI cockpit light system removal: `docs/vehicle-phaseAI-cockpit-light-system-removal-2026-06-03.md`
+- Cleanup Phase G full hierarchy audit: `docs/cleanup-phaseG-full-hierarchy-audit-2026-05-29.md`
+- Cleanup Phase H legacy inactive deletion: `docs/cleanup-phaseH-delete-legacy-inactive-items-2026-05-29.md`
+- Cleanup Phase I aggressive migration cleanup: `docs/cleanup-phaseI-aggressive-migration-cleanup-2026-05-29.md`
+- Cleanup Phase M post kit migration audit: `docs/cleanup-phaseM-post-kit-migration-audit-2026-05-29.md`
+- Cleanup Phase O stale metadata/report cleanup: `docs/cleanup-phaseO-stale-metadata-report-cleanup-2026-05-29.md`
 - Compressed architecture roadmap: `docs/compressed-architecture-roadmap-2026-05-28.md`
 
 ## Diagrams

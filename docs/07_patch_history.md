@@ -5,6 +5,10 @@ This is a high-level summary, not a complete changelog of every script.
 ## Documentation
 
 - 2026-05-28: Added dated current mechanics docs covering vehicle, lighting, LOD, traffic lights, mobile performance, customisation, UI, race events, and open-world city systems. These docs are a reference layer for future Codex/ChatGPT sessions and should not be treated as permission to rewrite unrelated systems.
+- 2026-05-29: Added Architecture Phase K command-bar migration plan/script to move `ReplicatedStorage.HOVER_RACING_V2_KIT` into `ReplicatedStorage.NeoTokyoRacers` domains with guarded source preflight.
+- 2026-05-29: Updated Architecture Phase K preflight patching for registry/path-string source references to `00_EDIT_ME_FIRST` and `UI_THEME_DoNotRename`.
+- 2026-05-29: Added Architecture Phase L command-bar deletion gate to verify no live dependencies remain, then destroy `ReplicatedStorage.HOVER_RACING_V2_KIT`.
+- 2026-05-29: Confirmed Architecture Phase K and Phase L completed in Studio. The old `ReplicatedStorage.HOVER_RACING_V2_KIT` root is gone, with 0 legacy source hits and 0 legacy ObjectValue references in the Phase L report.
 - 2026-05-28: Added target architecture reorganisation plan and Studio inventory report script for planning a safe future hierarchy migration.
 - 2026-05-28: Added a dedicated Studio inventory report paste document for long Roblox Explorer hierarchy reports.
 - 2026-05-28: Added hierarchy migration plan based on the pasted Studio inventory, with `Test + WIP Assets` explicitly excluded from migration.
@@ -54,6 +58,20 @@ This is a high-level summary, not a complete changelog of every script.
 - 2026-05-29: Phase C was run and play-tested successfully by the user; added `docs/main-client-phaseD-owner-switch-2026-05-29.md` and `scripts/roblox_client_phaseD_main_client_owner_switch.lua`, a controlled `SHADOW` / `SWITCH` / `ROLLBACK` owner-location switch for the remaining live `HOVER_RACING_V2_Client`.
 - 2026-05-29: Phase D was run and play-tested successfully by the user; added `docs/main-client-phaseE-post-switch-audit-2026-05-29.md` and `scripts/roblox_client_phaseE_post_switch_audit.lua`, a read-only audit for confirming the new architecture-owned main client is active and the legacy `HOVER_RACING_V2_Client` is disabled.
 - 2026-05-29: Phase E audit passed cleanly after rerunning Phase D with `MODE = "SWITCH"`: 11/11 expected active owners enabled, no unexpected active scripts, no active scripts in `Test + WIP Assets`, no active legacy-named `HOVER_RACING` scripts, and all staged Phase A-C modules present.
+- 2026-05-29: Added `docs/world-phaseF-city-hierarchy-lod-migration-2026-05-29.md` and `scripts/roblox_world_phaseF_city_hierarchy_lod_migration.lua`, preparing a city hierarchy migration from `Workspace.GeneratedCityBlocks` to `Workspace.NeoTokyoRacersWorld.City.Block S#` plus a LOD root resolver fallback.
+- 2026-05-29: Added `docs/world-phaseJ-far-lod5-assets-migration-2026-05-29.md` and `scripts/roblox_world_phaseJ_far_lod5_assets_migration.lua`, preparing migration of `ReplicatedStorage.FarLOD5` into `ReplicatedStorage.NeoTokyoRacers.Assets.World.FarLOD5Proxies` plus a LOD far-proxy resolver fallback.
+- 2026-05-29: Added `docs/cleanup-phaseG-full-hierarchy-audit-2026-05-29.md` and updated `scripts/roblox_cleanup_phaseG_full_hierarchy_cleanup_audit.lua`, a read-only full hierarchy cleanup audit that classifies old inactive folders/scripts/assets before a separate deletion script is generated.
+- 2026-05-29: Added `docs/cleanup-phaseH-delete-legacy-inactive-items-2026-05-29.md` and `scripts/roblox_cleanup_phaseH_delete_legacy_inactive_items.lua`, a targeted cleanup script with `DRY_RUN` / `DELETE` modes for removing the exact inactive legacy owners, rollback scripts, old report folders, and legacy archive confirmed by Cleanup Phase G.
+- 2026-05-29: Added `docs/cleanup-phaseI-aggressive-migration-cleanup-2026-05-29.md` and `scripts/roblox_cleanup_phaseI_aggressive_migration_cleanup.lua`, a one-step aggressive cleanup for stale migration reports, reference ObjectValues, mirror-only generated config, non-live scaffold/shadow/snapshot code, and empty placeholder folders.
+- 2026-05-29: Added `docs/cleanup-phaseM-post-kit-migration-audit-2026-05-29.md` and `scripts/roblox_cleanup_phaseM_post_kit_migration_audit.lua`, a read-only post-K/L audit for stale kit references, nil ObjectValues, empty compatibility folders, old report clutter, and remaining cleanup candidates.
+- 2026-05-29: Added `scripts/roblox_cleanup_phaseM_print_action_sections.lua`, a read-only helper that prints only the actionable Phase M report sections for review.
+- 2026-05-29: Added `scripts/roblox_cleanup_phaseM_runtime_root_probe.lua`, a read-only helper for checking whether `Workspace.HOVER_RACING_V2_WORLD` is still referenced before cleaning stale runtime ObjectValues.
+- 2026-05-29: Added `scripts/roblox_architecture_phaseN_runtime_world_path_repair.lua`, a guarded source/object reference repair for retargeting old `Workspace.HOVER_RACING_V2_WORLD` runtime paths to `Workspace.NeoTokyoRacersWorld`.
+- 2026-05-29: Updated Phase N after first Studio preflight to handle remaining `PLAYER_VEHICLES_Runtime` constant/variable source shapes in the garage action controller, driver seat service, and main client bootstrap.
+- 2026-05-29: Phase N completed successfully in Studio: 10 source objects patched, 24 replacements applied, 8 ObjectValues repaired, `Workspace.NeoTokyoRacersWorld.SpawnPoints.VehicleSpawnPoint` created, and final old runtime source hits were 0.
+- 2026-05-29: Added `scripts/roblox_cleanup_phaseO_stale_metadata_report_cleanup.lua`, a guarded cleanup for stale migration metadata, old report folders, old path StringValue text, and exact empty placeholder folders after the clean Phase M audit.
+- 2026-05-29: Phase O follow-up audit passed: 0 warnings, 0 missing required paths, 0 source legacy hits, 0 stale ObjectValues, and 0 auto cleanup candidates. Updated Phase M to stop flagging required empty architecture containers such as `Config.Runtime`.
+- 2026-05-29: Final Phase M action-section verification passed cleanly: every actionable section printed `None`, including review-before-delete candidates.
 
 ## Early System
 
@@ -80,6 +98,17 @@ This is a high-level summary, not a complete changelog of every script.
 
 - V52-V56 rebuilt or repaired server/action logic after earlier patch failures.
 - Later guidance: avoid large brittle server/client rewrites unless necessary.
+- 2026-06-02: Added `scripts/roblox_architecture_phaseP_garage_runtime_startup_repair.lua` in the Git repo for the conservative post-Phase-N garage runtime startup repair. Phase Q supersedes it if the line 23 startup error remains.
+- 2026-06-02: Added `scripts/roblox_architecture_phaseQ_garage_controller_header_repair.lua` to repair a post-Phase-N/P startup failure in the active garage action controller by replacing only the V56 startup header with migrated NeoTokyoRacers paths.
+
+## Lighting
+
+- 2026-06-02: Added `scripts/roblox_lighting_phaseR_fogcolor_property_repair.lua` to fix the invalid `Fogcolor` preset key by changing it to Roblox's valid `FogColor` property and adding a compatibility alias in `LightingService_Active`.
+
+## Vehicle Assets
+
+- 2026-06-02: Experimented with cockpit car-light phases S through AH, covering native SpotLights, local projectors, root-only emitters, predictive hosts, and Beam visuals. These did not meet the desired quality bar at speed.
+- 2026-06-03: Removed the cockpit car-light experiment scripts/docs from the active repo and added `scripts/roblox_vehicle_phaseAI_remove_cockpit_light_systems.lua` to remove installed helper scripts, light assets, root SpotLights, Beam/projector artifacts, and stale cockpit-light attributes from Studio. Front/rear long-range car lights are deferred.
 
 ## Driving
 
@@ -93,3 +122,8 @@ This is a high-level summary, not a complete changelog of every script.
 
 - `scripts/roblox_hover_racing_v74_pre_v72_camera_assist.lua`
 - `scripts/roblox_hover_racing_v75_boost_delay_hover_wobble.lua`
+- `scripts/roblox_architecture_phaseP_garage_runtime_startup_repair.lua`
+- `scripts/roblox_architecture_phaseQ_garage_controller_header_repair.lua`
+- `scripts/roblox_lighting_phaseR_fogcolor_property_repair.lua`
+- Cockpit light removal/defer script: `scripts/roblox_vehicle_phaseAI_remove_cockpit_light_systems.lua`
+- No cockpit car-light renderer is current after Phase AI.

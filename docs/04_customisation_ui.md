@@ -35,12 +35,12 @@ Known cockpit paint channels:
 - Secondary
 - Detail
 
-Cockpit front/rear light defaults were requested:
+Cockpit front/rear cosmetic neon defaults were requested:
 
 - Front: `252, 250, 255`
 - Rear: `255, 116, 116`
 
-Front/rear cockpit lights should not be editable during initial cockpit paint, but should be editable later in module/customisation menus.
+Front/rear cockpit neon should not be editable during initial cockpit paint, but can be revisited later in module/customisation menus. Long-range cockpit driving lights are currently deferred after Phase AI removed the S-AH light experiments.
 
 ## Build Modules
 
@@ -98,4 +98,3 @@ Known mobile driving UI:
 - Boost button also acts as boost meter.
 - MPH text shown above boost button.
 - PC bottom-left drive HUD should be hidden on mobile.
-
