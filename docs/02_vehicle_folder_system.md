@@ -103,6 +103,12 @@ Known module/cockpit stat attributes used by server/driving logic:
 - `BoostRecharge`
 - `BoostRechargeDelay`
 
+## Spawn Markers
+
+`Workspace.NeoTokyoRacersWorld.SpawnPoints.VehicleSpawnPoint` is the migrated general vehicle spawn marker from Architecture Phase N.
+
+The dealership intro flow adds `Workspace.NeoTokyoRacersWorld.Dealership.Spawn.VehicleExitSpawnPoint` for the final server-created drivable vehicle after customisation. This gives the dealership exit its own editable placement and facing direction without changing the client-only preview spawn.
+
 ## Current Diagrams
 
 - `diagrams/vehicle_asset_system.svg`

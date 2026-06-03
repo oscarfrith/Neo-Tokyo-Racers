@@ -46,14 +46,17 @@ roblox/exported_scripts/ReplicatedStorage/HOVER_RACING_V2_KIT/CLIENT_MODULES/Con
 These are the most important active gameplay scripts to refresh after major Studio changes:
 
 ```text
-ServerScriptService.HOVER_RACING_V2_SERVER.HOVER_RACING_V2_Server
-ServerScriptService.HOVER_RACING_V2_SERVER.HOVER_RACING_V2_DriverSeatPosition
-StarterPlayer.StarterPlayerScripts.HOVER_RACING_V2_Client
-StarterPlayer.StarterPlayerScripts.HOVER_RACING_V67_MobileDriveControls
-StarterPlayer.StarterPlayerScripts.HOVER_RACING_V71_MobilePcHudSuppressor
-StarterPlayer.StarterPlayerScripts.LOD System
+ServerScriptService.NeoTokyoRacers.Services.Garage.GarageActionController_Shadow_Disabled
+ServerScriptService.NeoTokyoRacers.Services.Vehicle.DriverSeatPositionKeeper_Active
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.NeoTokyoRacersClient_Bootstrap_Shadow_Disabled
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Intro.DealershipIntroClient_Active
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Runtime.HOVER_RACING_V67_MobileDriveControls
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Runtime.HOVER_RACING_V71_MobilePcHudSuppressor
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.World.LOD System
 StarterPlayer.StarterPlayerScripts.TEMP_LightingPreview
 ```
+
+After dealership intro changes, refresh the active client bootstrap, intro client, and garage server controller mirror together. Phases 1-7 were installed and user-confirmed working on 2026-06-03.
 
 Important active module roots:
 

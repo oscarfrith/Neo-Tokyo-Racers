@@ -21,6 +21,19 @@ Known dealership structure:
 - Vehicle stats panel on the right.
 - Available cash panel near the lower left.
 
+2026-06-03 dealership intro phases 1-7:
+
+- `Workspace.NeoTokyoRacersWorld.Dealership.Intro` is the planned marker root for spawn, desk trigger, camera, preview, and path nodes.
+- Phase 1 marker setup is world/layout only; it does not change auto-open, preview camera, garage UI, or purchase behavior.
+- Runtime reads `Intro` attributes and keeps camera/objective/garage UI state per player where practical.
+- Phase 2 installs `DealershipIntroClient_Active` for local objective text, local path arrows, and desk distance detection.
+- Phase 3 gates the full garage menu so it should open from the desk intro hook instead of immediately on spawn.
+- Phase 4 delays the local vehicle preview until a cockpit purchase/select succeeds, then places it at `Intro.Preview.VehiclePreviewPoint` and uses `Intro.Camera.GaragePreviewCameraPoint`.
+- Phase 5 restores the existing garage orbit camera behavior after preview creation; the marker sets the first view, then players can rotate around the vehicle centre and module selection can rotate to slot areas.
+- Phase 6 adds `Workspace.NeoTokyoRacersWorld.Dealership.Spawn.VehicleExitSpawnPoint` for the final server-created drivable vehicle after customisation. This is separate from the client-only preview marker.
+- Phase 7 adds an Exit button to the first cockpit-buy menu. It should sit in the bottom-right right column, aligned with the vehicle stats panel right edge and the Available Cash panel bottom edge, and reopen only after the player leaves and re-enters the desk zone.
+- The user confirmed Phase 1-7 working on 2026-06-03.
+
 For mobile:
 
 - Cockpit cards should scale to fit a `3x3` style grid where possible.

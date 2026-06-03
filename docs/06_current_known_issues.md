@@ -24,9 +24,18 @@ Watch for:
 
 ## UI
 
+Recently confirmed:
+
+- Dealership Intro Phases 1-7 were installed and reported working on 2026-06-03.
+- The full dealership menu opens from `GarageDeskTrigger` instead of immediately on spawn.
+- The first-menu Exit button closes the menu and the menu reopens after leaving and re-entering the desk zone.
+
 Known sensitive areas:
 
 - Phase Q appeared to restore garage/UI startup; confirm it still loads after a fresh Studio restart.
+- The dealership intro markers are editable Studio placement controls; keep `Workspace.NeoTokyoRacersWorld.Dealership.Intro` and `Workspace.NeoTokyoRacersWorld.Dealership.Spawn.VehicleExitSpawnPoint` positioned after world/layout changes.
+- Dealership Intro Phases 3-7 are guarded source-text patches; if the active bootstrap or intro client is regenerated, rerun audits before applying new dealership patches.
+- In multiplayer/local server testing, confirm `Workspace._NTR_ClientOnly.VehiclePreview` is visible only on the owning client.
 - Mobile dealership scaling.
 - PC drive HUD hiding on mobile.
 - Customisation colour sliders on mobile.

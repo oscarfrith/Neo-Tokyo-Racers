@@ -30,6 +30,7 @@ Known from chat:
 - Architecture Phase Q repaired the post-Phase-N/P garage startup regression where `GarageActionController_Shadow_Disabled` errors near line 23 and the garage UI does not load. The user reported Phase Q worked.
 - Lighting Phase R is prepared to repair `Fogcolor` typo warnings by changing lighting presets to Roblox's valid `FogColor` property and adding a compatibility alias in `LightingService_Active`.
 - Vehicle Phase AI removes/deprioritises the cockpit car-light experiments from Phases S through AH. No cockpit SpotLight, Beam, smoother, projector, or diagnostic runtime should be considered current. Ordinary cosmetic neon colour channels remain.
+- Dealership Intro Phases 1-7 were installed and confirmed working by the user on 2026-06-03. The flow now uses editable dealership markers, opens the full garage only at `GarageDeskTrigger`, delays the local preview until cockpit purchase/select succeeds, restores preview orbit camera behavior, spawns the final drivable vehicle from `VehicleExitSpawnPoint`, and includes an Exit button that only reopens after the player leaves and re-enters the desk zone.
 - Phase 15 successfully moved live server action ownership to `ServerScriptService.NeoTokyoRacers.Services.Garage.GarageActionController_Shadow_Disabled`. The old `HOVER_RACING_V2_Server` remains available for rollback but is no longer the live server action owner.
 - `V74` restored the pre-V72/default Roblox driving camera feel and added a light camera assist. The user confirmed this worked well.
 - `V75` was generated next to add boost recharge delay and low-speed hover wobble. At the time of writing, no later user confirmation is present in this chat history.
@@ -37,6 +38,7 @@ Known from chat:
 Recommended baseline:
 
 - Server action owner baseline: `GarageActionController_Shadow_Disabled` is currently the tested live owner after Phase 15.
+- Dealership intro baseline: Phases 1-7 are the current tested startup/customisation flow. Use `docs/dealership-intro-flow-2026-06-03.md` before changing garage startup, preview timing, desk open behavior, or final vehicle spawn placement.
 - Use `scripts/roblox_hover_racing_v74_pre_v72_camera_assist.lua` if camera stability is the priority.
 - Use `scripts/roblox_hover_racing_v75_boost_delay_hover_wobble.lua` as the latest generated patch, then play-test fresh in Roblox Studio.
 
@@ -93,6 +95,7 @@ Recommended baseline:
 - Architecture Phase Q garage controller header repair: `docs/architecture-phaseQ-garage-controller-header-repair-2026-06-02.md`
 - Lighting Phase R FogColor property repair: `docs/lighting-phaseR-fogcolor-property-repair-2026-06-02.md`
 - Vehicle Phase AI cockpit light system removal: `docs/vehicle-phaseAI-cockpit-light-system-removal-2026-06-03.md`
+- Dealership intro flow marker setup: `docs/dealership-intro-flow-2026-06-03.md`
 - Cleanup Phase G full hierarchy audit: `docs/cleanup-phaseG-full-hierarchy-audit-2026-05-29.md`
 - Cleanup Phase H legacy inactive deletion: `docs/cleanup-phaseH-delete-legacy-inactive-items-2026-05-29.md`
 - Cleanup Phase I aggressive migration cleanup: `docs/cleanup-phaseI-aggressive-migration-cleanup-2026-05-29.md`

@@ -1,20 +1,34 @@
 # UI Systems
 
 **Created / first designed:** Before 2026-05-26  
-**Last updated:** 2026-05-26  
-**Current status:** Exists in current build / exact implementation TBC  
+**Last updated:** 2026-06-03  
+**Current status:** Dealership startup UI documented; wider UI system still needs fuller mapping  
 **Relevant docs file:** `docs/ui-systems.md`  
 **Relevant files to edit:** UI screens and UI client controllers only.
 
 ## What The System Does
 
-The game already has UI work in progress. This likely supports racing, vehicle feedback, customisation, and prototype presentation.
+The game has UI for racing, vehicle feedback, dealership/customisation, and prototype presentation.
+
+The dealership startup UI is currently confirmed through Phase 7:
+
+- Compact intro objective UI.
+- Local-only path arrows to the dealership desk.
+- Full garage menu opens at `GarageDeskTrigger`, not on spawn.
+- First cockpit-buy menu has an Exit button in the bottom-right right column, aligned with the vehicle stats panel and Available Cash frame.
+- Exiting the first menu closes the garage and reopens only after leaving/re-entering the desk zone.
+- Preview UI/camera behavior starts after cockpit purchase/select.
 
 ## Current Folder / Script Names
 
-Exact UI folder/script names TBC.
+Known current UI script ownership:
 
-Likely location:
+```text
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.NeoTokyoRacersClient_Bootstrap_Shadow_Disabled
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Intro.DealershipIntroClient_Active
+```
+
+Wider UI locations still need fuller mapping:
 
 ```text
 StarterGui
@@ -39,12 +53,14 @@ Design rules:
 ## Current Known Issues
 
 - Exact UI systems are not yet documented.
+- Dealership startup UI is documented in `docs/dealership-intro-flow-2026-06-03.md`.
 - Need to confirm what UI is functional versus placeholder.
 - Need to test on mobile aspect ratios.
 
 ## Confirmed Working
 
 - UI exists in the current build.
+- Dealership intro/customisation startup UI Phases 1-7 were confirmed working on 2026-06-03.
 
 ## Still Needs Testing
 

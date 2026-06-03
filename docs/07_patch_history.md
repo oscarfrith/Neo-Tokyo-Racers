@@ -6,6 +6,15 @@ This is a high-level summary, not a complete changelog of every script.
 
 - 2026-05-28: Added dated current mechanics docs covering vehicle, lighting, LOD, traffic lights, mobile performance, customisation, UI, race events, and open-world city systems. These docs are a reference layer for future Codex/ChatGPT sessions and should not be treated as permission to rewrite unrelated systems.
 - 2026-06-03: Added `prompts/`, a reusable ChatGPT/Codex prompt pack for session startup, Studio output debugging, feature planning, handoff, commit summaries, and docs database maintenance.
+- 2026-06-03: Added `scripts/roblox_dealership_intro_phase0_audit.lua`, a read-only Studio command-bar audit for active client/server garage paths, legacy script state, world/intro marker presence, and likely auto-open/preview/purchase code paths.
+- 2026-06-03: Added Dealership Intro Phase 1 marker setup docs and `scripts/roblox_dealership_intro_phase1_setup_markers.lua`, a safe rerunnable Studio command-bar script that creates editable intro spawn, desk trigger, camera, preview, and path markers without touching startup behavior.
+- 2026-06-03: Added `scripts/roblox_dealership_intro_phase2_install_client.lua`, installing an isolated `DealershipIntroClient_Active` LocalScript for objective UI, local path arrows, camera intro, and desk distance detection. It expects the Phase 3 `OpenGarageFromIntro` hook for opening the full garage.
+- 2026-06-03: Added `scripts/roblox_dealership_intro_phase3_gate_garage_startup.lua`, a guarded client patch that replaces the active bootstrap's auto `task.defer(init)` startup with a local `OpenGarageFromIntro` BindableEvent fired by the intro client at the desk.
+- 2026-06-03: Added `scripts/roblox_dealership_intro_phase4_preview_after_purchase.lua`, a fragile guarded client patch that delays local preview vehicle creation until successful cockpit purchase/select, uses `Workspace._NTR_ClientOnly.VehiclePreview`, and reads dealership preview/camera markers.
+- 2026-06-03: Added `scripts/roblox_dealership_intro_phase5_restore_preview_orbit_camera.lua`, restoring garage preview orbit camera behavior after Phase 4 so the preview camera starts from the marker but still rotates around the vehicle centre and responds to module selection focus.
+- 2026-06-03: Added `scripts/roblox_dealership_intro_phase6_vehicle_exit_spawn_marker.lua`, creating `Workspace.NeoTokyoRacersWorld.Dealership.Spawn.VehicleExitSpawnPoint` and patching the active garage server controller so final drivable vehicles spawn from that editable marker.
+- 2026-06-03: Added `scripts/roblox_dealership_intro_phase7_exit_button_reopen_gate.lua`, adding an Exit button to the first cockpit-buy menu and a leave/re-enter gate so exiting the dealership does not immediately reopen the menu.
+- 2026-06-03: User confirmed Dealership Intro Phases 1-7 working, including desk-gated garage open, delayed preview, restored preview orbit camera, editable final exit spawn, and first-menu Exit/reopen behavior.
 - 2026-05-29: Added Architecture Phase K command-bar migration plan/script to move `ReplicatedStorage.HOVER_RACING_V2_KIT` into `ReplicatedStorage.NeoTokyoRacers` domains with guarded source preflight.
 - 2026-05-29: Updated Architecture Phase K preflight patching for registry/path-string source references to `00_EDIT_ME_FIRST` and `UI_THEME_DoNotRename`.
 - 2026-05-29: Added Architecture Phase L command-bar deletion gate to verify no live dependencies remain, then destroy `ReplicatedStorage.HOVER_RACING_V2_KIT`.
@@ -127,4 +136,12 @@ This is a high-level summary, not a complete changelog of every script.
 - `scripts/roblox_architecture_phaseQ_garage_controller_header_repair.lua`
 - `scripts/roblox_lighting_phaseR_fogcolor_property_repair.lua`
 - Cockpit light removal/defer script: `scripts/roblox_vehicle_phaseAI_remove_cockpit_light_systems.lua`
+- Dealership intro audit: `scripts/roblox_dealership_intro_phase0_audit.lua`
+- Dealership intro marker setup: `scripts/roblox_dealership_intro_phase1_setup_markers.lua`
+- Dealership intro client installer: `scripts/roblox_dealership_intro_phase2_install_client.lua`
+- Dealership intro garage startup gate: `scripts/roblox_dealership_intro_phase3_gate_garage_startup.lua`
+- Dealership intro preview-after-purchase patch: `scripts/roblox_dealership_intro_phase4_preview_after_purchase.lua`
+- Dealership intro preview orbit camera fix: `scripts/roblox_dealership_intro_phase5_restore_preview_orbit_camera.lua`
+- Dealership intro vehicle exit spawn marker: `scripts/roblox_dealership_intro_phase6_vehicle_exit_spawn_marker.lua`
+- Dealership intro exit button/reopen gate: `scripts/roblox_dealership_intro_phase7_exit_button_reopen_gate.lua`
 - No cockpit car-light renderer is current after Phase AI.

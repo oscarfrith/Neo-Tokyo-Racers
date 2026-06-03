@@ -2,7 +2,7 @@
 
 **Document status:** Current prototype mechanics reference  
 **Document created:** 2026-05-28  
-**Document last updated:** 2026-05-28  
+**Document last updated:** 2026-06-03  
 **Source:** ChatGPT project notes and current Roblox Studio implementation discussions  
 **Current status:** Active index / source-of-truth summary  
 
@@ -33,8 +33,9 @@ Architecture planning:
 | Open World LOD / Far Proxy System | Implemented / foliage LOD issue previously found | 2026-04-29 | [world-streaming-and-lod.md](world-streaming-and-lod.md) |
 | Traffic Light Timer System | Designed / needs hierarchy-matched implementation check | 2026-04-29 | [environment-interactives.md](environment-interactives.md) |
 | Mobile / Performance Rules | Active project-wide technical rule set | 2026-05-12 | [mobile-performance-rules.md](mobile-performance-rules.md) |
-| Customisation System | Exists in current build / exact implementation TBC | 2026-05-26 | [customisation-system.md](customisation-system.md) |
-| UI Systems | Exists in current build / exact implementation TBC | 2026-05-26 | [ui-systems.md](ui-systems.md) |
+| Customisation System | Dealership/cockpit startup flow documented; wider module/customisation details still need fuller mapping | 2026-06-03 | [customisation-system.md](customisation-system.md) |
+| UI Systems | Dealership startup UI documented; wider UI system still needs fuller mapping | 2026-06-03 | [ui-systems.md](ui-systems.md) |
+| Dealership Intro / Startup Flow | Phases 1-7 installed and user-confirmed working | 2026-06-03 | [dealership-intro-flow-2026-06-03.md](dealership-intro-flow-2026-06-03.md) |
 | Race Events / First Race Prototype | Planned / not confirmed implemented | 2026-05-26 | [race-events.md](race-events.md) |
 | Open World City / Generated Blocks | Implemented / performance testing ongoing | 2026-05-12 | [open-world-city.md](open-world-city.md) |
 
@@ -65,6 +66,7 @@ Architecture planning:
 - Day lighting values have been captured.
 - UI exists.
 - Customisation exists.
+- Dealership intro Phases 1-7 are working: desk-gated garage open, delayed local preview after cockpit purchase/select, restored preview orbit camera, editable final vehicle exit spawn, and first-menu Exit/reopen gating.
 - Traffic light behaviour has been designed.
 - The project direction is clear: playable futuristic hover-racing prototype for funding.
 

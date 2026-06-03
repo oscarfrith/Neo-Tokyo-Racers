@@ -13,13 +13,16 @@ The visual direction discussed in chat is inspired by brutalist modular pod-race
 Current planned/implemented flow:
 
 1. Loading screen with game title and loading bar.
-2. First-time vehicle creation.
-3. Dealership/cockpit selection.
-4. Cockpit paint.
-5. Module selection.
-6. Module customisation.
-7. Spawn into the vehicle and start driving.
-8. Free roam with exit/re-enter/saved cars UI.
+2. Dealership intro objective/path guides the player to the desk.
+3. Reaching the desk opens the dealership/cockpit selection menu.
+4. Cockpit purchase/select creates the local-only preview.
+5. Cockpit paint.
+6. Module selection.
+7. Module customisation.
+8. Spawn into the final drivable vehicle at the editable dealership exit marker and start driving.
+9. Free roam with exit/re-enter/saved cars UI.
+
+The current dealership intro baseline is documented in `docs/dealership-intro-flow-2026-06-03.md`. The first cockpit-buy menu includes an Exit button; after exiting, the menu stays closed until the player leaves and re-enters the dealership desk zone.
 
 ## Current Vehicle Category
 

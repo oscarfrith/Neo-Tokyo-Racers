@@ -1,14 +1,14 @@
 # Customisation System
 
 **Created / first designed:** Before 2026-05-26  
-**Last updated:** 2026-05-26  
-**Current status:** Exists in current build / exact implementation TBC  
+**Last updated:** 2026-06-03  
+**Current status:** Dealership/cockpit startup flow documented; wider customisation details still need fuller mapping  
 **Relevant docs file:** `docs/customisation-system.md`  
 **Relevant files to edit:** Customisation UI, customisation configs, vehicle cosmetic scripts only.
 
 ## What The System Does
 
-The project already has some form of vehicle customisation, intended to support modular futuristic hover vehicles that players can personalise.
+The project has a working dealership/customisation flow for choosing a cockpit, painting it, selecting modules, customising modules, and spawning the final drivable vehicle.
 
 This is part of the core fantasy of Neo Tokyo Racers:
 
@@ -16,25 +16,36 @@ This is part of the core fantasy of Neo Tokyo Racers:
 - Race through a neon city.
 - Upgrade or customise the vehicle over time.
 
+## Current Dealership Flow
+
+The current confirmed startup/customisation path is:
+
+- `DealershipIntroClient_Active` shows local objective/path guidance to the dealership desk.
+- `OpenGarageFromIntro` opens the active garage UI only when the player reaches `GarageDeskTrigger`.
+- The first cockpit-buy menu can be exited. It reopens only after the player leaves and re-enters the desk zone.
+- The local preview vehicle is delayed until cockpit purchase/select succeeds.
+- Preview placement uses `Workspace.NeoTokyoRacersWorld.Dealership.Intro.Preview.VehiclePreviewPoint`.
+- Preview camera startup uses `Workspace.NeoTokyoRacersWorld.Dealership.Intro.Camera.GaragePreviewCameraPoint`, then normal orbit/module focus behavior continues.
+- Final drivable vehicle spawn uses `Workspace.NeoTokyoRacersWorld.Dealership.Spawn.VehicleExitSpawnPoint`.
+
+Full details are in `docs/dealership-intro-flow-2026-06-03.md`.
+
 ## Current Folder / Script Names
 
-Exact folder/script names TBC.
+Known current script ownership:
 
-Known current-build note:
+```text
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.NeoTokyoRacersClient_Bootstrap_Shadow_Disabled
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Intro.DealershipIntroClient_Active
+ServerScriptService.NeoTokyoRacers.Services.Garage.GarageActionController_Shadow_Disabled
+```
 
-- Customisation already exists in the project in some form.
-
-Likely systems needing documentation:
+Wider module/customisation internals still need fuller documentation:
 
 ```text
 ReplicatedStorage
-- Shared / Config / VehicleParts TBC
-
-StarterGui
-- Customisation UI TBC
-
-ServerScriptService
-- Customisation server validation TBC
+- NeoTokyoRacers.Assets.Vehicles
+- NeoTokyoRacers.Shared.Remotes.Garage
 ```
 
 ## Important Attributes / Settings
@@ -53,6 +64,7 @@ Design rules:
 ## Current Known Issues
 
 - Exact implementation needs documenting.
+- Wider module/customisation implementation still needs documenting beyond the dealership intro/startup path.
 - Need to identify which customisation features are currently functional.
 - Need to confirm whether customisation is saved, temporary, or UI-only.
 - Need to confirm whether customisation affects performance or physics.
@@ -60,6 +72,7 @@ Design rules:
 ## Confirmed Working
 
 - Customisation exists in the current build.
+- Dealership intro/customisation startup Phases 1-7 were confirmed working on 2026-06-03.
 - Fictional companies/images are already part of the project direction.
 - The feature is considered part of the current prototype identity.
 
