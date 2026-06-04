@@ -27,10 +27,61 @@ Known behaviour:
 Current drift design:
 
 - `SHIFT` activates drift on keyboard.
+- Character sprint may also use `LeftShift` while on foot, but `scripts/roblox_character_sprint_controller_install.lua` installs it as an on-foot-only controller. It does not bind/sink the key with `ContextActionService`, and it suspends itself when the humanoid is seated in a `VehicleSeat`, so vehicle drift can continue reading Shift directly.
 - Drift does not activate while reversing.
 - Drift slows the vehicle more than normal driving.
 - Drift improves turning while held.
 - Longer drift charges a stronger/longer post-drift mini boost.
+
+## Character Sprint
+
+Confirmed sprint controller:
+
+- `scripts/roblox_character_sprint_controller_install.lua`
+
+Runtime install path:
+
+```text
+StarterPlayer
+  StarterPlayerScripts
+    NeoTokyoRacersClient
+      Controllers
+        Runtime
+          CharacterSprintController_Active
+```
+
+Editable sprint config folder:
+
+```text
+ReplicatedStorage
+  NeoTokyoRacers
+    Shared
+      Config
+        CharacterMovement_EditAttributes
+```
+
+Known attributes:
+
+- `Enabled`
+- `AnimationId`
+- `NormalWalkSpeed`
+- `SprintWalkSpeed`
+- `SprintFovEnabled`
+- `SprintFieldOfView`
+- `FovTweenSeconds`
+- `SprintKey`
+- `MinimumMoveSpeedForAnimation`
+- `MobileAutoSprintEnabled`
+- `MobileSprintMoveThreshold`
+- `Debug`
+
+Important behaviour:
+
+- Sprint is for on-foot movement only.
+- Sprint stops when the player sits in a `VehicleSeat`.
+- Mobile auto-sprint can start sprinting when the standard Roblox left thumbstick/move vector is pushed beyond `MobileSprintMoveThreshold`, default `0.85`.
+- The installer removes the earlier broken `StarterPlayer.StarterCharacterScripts.NTR_CharacterSprintDefaults` script if present.
+- The sprint installer was reported working on 2026-06-04 after the user moved/renamed the runtime hierarchy into the clean `NeoTokyoRacersClient.Controllers.Runtime` structure.
 
 ## Boost
 
@@ -113,4 +164,3 @@ Known attributes:
 ## Current Diagrams
 
 - `diagrams/driving_runtime_system.svg`
-

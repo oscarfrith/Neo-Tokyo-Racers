@@ -1,6 +1,6 @@
 # Neo Tokyo Racers Project Context
 
-Last updated: 2026-06-03
+Last updated: 2026-06-04
 
 This folder is the handoff pack for new Codex or ChatGPT sessions. Read this file first, then use the other docs only as needed.
 
@@ -34,6 +34,7 @@ Known from chat:
 - Phase 15 successfully moved live server action ownership to `ServerScriptService.NeoTokyoRacers.Services.Garage.GarageActionController_Shadow_Disabled`. The old `HOVER_RACING_V2_Server` remains available for rollback but is no longer the live server action owner.
 - `V74` restored the pre-V72/default Roblox driving camera feel and added a light camera assist. The user confirmed this worked well.
 - `V75` was generated next to add boost recharge delay and low-speed hover wobble. At the time of writing, no later user confirmation is present in this chat history.
+- Character sprint install was run and reported working on 2026-06-04. The live runtime hierarchy now includes `StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Runtime.CharacterSprintController_Active`; Shift sprint works on foot and Shift drift remains available while seated in a `VehicleSeat`. Mobile auto-sprint support is prepared in the installer and needs mobile/emulator verification.
 
 Recommended baseline:
 
@@ -41,6 +42,7 @@ Recommended baseline:
 - Dealership intro baseline: Phases 1-7 are the current tested startup/customisation flow. Use `docs/dealership-intro-flow-2026-06-03.md` before changing garage startup, preview timing, desk open behavior, or final vehicle spawn placement.
 - Use `scripts/roblox_hover_racing_v74_pre_v72_camera_assist.lua` if camera stability is the priority.
 - Use `scripts/roblox_hover_racing_v75_boost_delay_hover_wobble.lua` as the latest generated patch, then play-test fresh in Roblox Studio.
+- Use `scripts/roblox_character_sprint_controller_install.lua` to install or roll back the on-foot sprint controller. It writes tuning attributes under `ReplicatedStorage.NeoTokyoRacers.Shared.Config.CharacterMovement_EditAttributes`.
 
 ## Important Working Style
 
@@ -96,6 +98,7 @@ Recommended baseline:
 - Lighting Phase R FogColor property repair: `docs/lighting-phaseR-fogcolor-property-repair-2026-06-02.md`
 - Vehicle Phase AI cockpit light system removal: `docs/vehicle-phaseAI-cockpit-light-system-removal-2026-06-03.md`
 - Dealership intro flow marker setup: `docs/dealership-intro-flow-2026-06-03.md`
+- Character sprint controller handoff: `docs/character-sprint-controller-2026-06-04.md`
 - Cleanup Phase G full hierarchy audit: `docs/cleanup-phaseG-full-hierarchy-audit-2026-05-29.md`
 - Cleanup Phase H legacy inactive deletion: `docs/cleanup-phaseH-delete-legacy-inactive-items-2026-05-29.md`
 - Cleanup Phase I aggressive migration cleanup: `docs/cleanup-phaseI-aggressive-migration-cleanup-2026-05-29.md`
