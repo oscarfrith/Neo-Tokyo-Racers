@@ -54,6 +54,7 @@ StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Runtime.Char
 StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Runtime.DriveHudController_Active
 StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Runtime.MobileDriveControlsController_Active
 StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Runtime.RuntimeVFXController_Active
+StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.Preview.ThrustPreviewController_Active
 StarterPlayer.StarterPlayerScripts.NeoTokyoRacersClient.Controllers.World.LODClient_Active
 StarterPlayer.StarterPlayerScripts.TEMP_LightingPreview
 ```
@@ -63,8 +64,10 @@ After dealership intro changes, refresh the active client bootstrap, intro clien
 Important active module roots:
 
 ```text
-ReplicatedStorage.HOVER_RACING_V2_KIT.CLIENT_MODULES
-ReplicatedStorage.HOVER_RACING_V2_KIT.SHARED_MODULES
+ReplicatedStorage.NeoTokyoRacers.Shared.Modules.Client
+ReplicatedStorage.NeoTokyoRacers.Shared.Modules.Common
+ReplicatedStorage.NeoTokyoRacers.Shared.Modules.Core
+ReplicatedStorage.NeoTokyoRacers.Assets.VFX.VehicleTemplates
 ReplicatedStorage.Shared.LightingPresets
 ReplicatedStorage.NeoTokyoRacers
 ```

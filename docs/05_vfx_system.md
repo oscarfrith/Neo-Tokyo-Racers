@@ -70,6 +70,12 @@ Thrust colour applies to:
 - Stabiliser particles/fire.
 - `THRUST_COLOR_WhiteByDefault` module assets.
 
+Customisation preview note:
+
+- Dealership Intro Phase 4 moved the local preview vehicle to `Workspace._NTR_ClientOnly.VehiclePreview`.
+- Thrust preview/VFX helpers should resolve that local-only root first, then fall back to `Workspace.HOVER_RACING_V2_LOCAL_PREVIEW` only for older rollback states.
+- VFX Phase AJ repairs the active cached thrust runtime for this root change.
+
 Known particle names to recolour:
 
 - `BoostOn_Fire`
@@ -90,4 +96,3 @@ Known performance choices:
 - A weld leak in cached thrust visuals was fixed in V66.
 - Particle rates should stay moderate on mobile.
 - Beams are generally efficient, but lots of animated textures/particles across many cars still need profiling.
-

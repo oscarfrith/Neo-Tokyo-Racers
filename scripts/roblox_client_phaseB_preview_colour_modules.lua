@@ -192,7 +192,9 @@ local controllersFolder = script.Parent.Parent
 local coreFolder = controllersFolder:WaitForChild("Core")
 local PaintClient = require(coreFolder:WaitForChild("PaintClient"))
 
-PreviewVehicleController.PreviewFolderName = "HOVER_RACING_V2_LOCAL_PREVIEW"
+PreviewVehicleController.ClientRootName = "_NTR_ClientOnly"
+PreviewVehicleController.PreviewFolderName = "VehiclePreview"
+PreviewVehicleController.LegacyPreviewFolderName = "HOVER_RACING_V2_LOCAL_PREVIEW"
 
 function PreviewVehicleController.FindTemplateByAttribute(root, attr, value)
 	if not root or value == nil then
@@ -213,7 +215,19 @@ function PreviewVehicleController.GetPreviewRoot(workspaceRef, previewState)
 		return previewState.Root
 	end
 
-	local existing = workspaceRef:FindFirstChild(PreviewVehicleController.PreviewFolderName)
+	local clientRoot = workspaceRef:FindFirstChild(PreviewVehicleController.ClientRootName)
+	if not clientRoot then
+		clientRoot = Instance.new("Folder")
+		clientRoot.Name = PreviewVehicleController.ClientRootName
+		clientRoot.Parent = workspaceRef
+	end
+
+	local legacy = workspaceRef:FindFirstChild(PreviewVehicleController.LegacyPreviewFolderName)
+	if legacy then
+		legacy:Destroy()
+	end
+
+	local existing = clientRoot:FindFirstChild(PreviewVehicleController.PreviewFolderName)
 	if existing then
 		previewState.Root = existing
 		return existing
@@ -221,7 +235,7 @@ function PreviewVehicleController.GetPreviewRoot(workspaceRef, previewState)
 
 	local root = Instance.new("Folder")
 	root.Name = PreviewVehicleController.PreviewFolderName
-	root.Parent = workspaceRef
+	root.Parent = clientRoot
 	previewState.Root = root
 	return root
 end

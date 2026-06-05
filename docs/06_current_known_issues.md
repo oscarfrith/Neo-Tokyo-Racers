@@ -8,6 +8,7 @@ This file is intentionally conservative. Items are included only when they were 
 - Confirm that `BoostRechargeDelay` is being read from installed Boost modules at runtime.
 - Confirm that low-speed wobble is subtle enough and fades out by `20 MPH`.
 - Mobile auto-sprint is prepared in `scripts/roblox_character_sprint_controller_install.lua`; verify on a mobile device/emulator that `MobileSprintMoveThreshold` feels right.
+- VFX Phase AJ is prepared to repair thrust VFX preview after the dealership preview root moved; run and verify `scripts/roblox_vfx_phaseAJ_thrust_preview_root_repair.lua` if thrust VFX is missing in the customisation menu.
 
 ## Camera
 
@@ -47,12 +48,15 @@ Recently confirmed:
 - Dealership Intro Phases 1-7 were installed and reported working on 2026-06-03.
 - The full dealership menu opens from `GarageDeskTrigger` instead of immediately on spawn.
 - The first-menu Exit button closes the menu and the menu reopens after leaving and re-entering the desk zone.
+- Dealership Intro Phase 8 is generated for Studio install/testing. It adds a dynamic client-only arrow tether to the desk and DataStore-backed first-objective completion persistence.
 
 Known sensitive areas:
 
 - Phase Q appeared to restore garage/UI startup; confirm it still loads after a fresh Studio restart.
 - The dealership intro markers are editable Studio placement controls; keep `Workspace.NeoTokyoRacersWorld.Dealership.Intro` and `Workspace.NeoTokyoRacersWorld.Dealership.Spawn.VehicleExitSpawnPoint` positioned after world/layout changes.
 - Dealership Intro Phases 3-7 are guarded source-text patches; if the active bootstrap or intro client is regenerated, rerun audits before applying new dealership patches.
+- Phase 8 replaces only the isolated intro client and adds `IntroProgressService_Active`; confirm it keeps the Phase 7 desk reopen behavior and does not show the objective/tether after rejoin.
+- Studio DataStore API access is needed to verify Phase 8 persistence across leave/rejoin. If API access is off, completion may be session-only and warnings are expected.
 - In multiplayer/local server testing, confirm `Workspace._NTR_ClientOnly.VehiclePreview` is visible only on the owning client.
 - Mobile dealership scaling.
 - PC drive HUD hiding on mobile.
@@ -67,6 +71,7 @@ Known sensitive areas:
 
 Known sensitive areas:
 
+- Dealership Phase 4 moved the local preview vehicle to `Workspace._NTR_ClientOnly.VehiclePreview`; thrust VFX preview helpers must resolve this root before the old `Workspace.HOVER_RACING_V2_LOCAL_PREVIEW` fallback.
 - Thrust colour should not flicker back to default after editing.
 - Cosmetic neon and thrust-colour neon must remain separate.
 - Front bumper optional neon previously did not update correctly.

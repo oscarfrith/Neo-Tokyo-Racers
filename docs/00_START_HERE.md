@@ -1,6 +1,6 @@
 # Neo Tokyo Racers Project Context
 
-Last updated: 2026-06-04
+Last updated: 2026-06-05
 
 This folder is the handoff pack for new Codex or ChatGPT sessions. Read this file first, then use the other docs only as needed.
 
@@ -30,7 +30,8 @@ Known from chat:
 - Architecture Phase Q repaired the post-Phase-N/P garage startup regression where `GarageActionController_Shadow_Disabled` errors near line 23 and the garage UI does not load. The user reported Phase Q worked.
 - Lighting Phase R is prepared to repair `Fogcolor` typo warnings by changing lighting presets to Roblox's valid `FogColor` property and adding a compatibility alias in `LightingService_Active`.
 - Vehicle Phase AI removes/deprioritises the cockpit car-light experiments from Phases S through AH. No cockpit SpotLight, Beam, smoother, projector, or diagnostic runtime should be considered current. Ordinary cosmetic neon colour channels remain.
-- Dealership Intro Phases 1-7 were installed and confirmed working by the user on 2026-06-03. The flow now uses editable dealership markers, opens the full garage only at `GarageDeskTrigger`, delays the local preview until cockpit purchase/select succeeds, restores preview orbit camera behavior, spawns the final drivable vehicle from `VehicleExitSpawnPoint`, and includes an Exit button that only reopens after the player leaves and re-enters the desk zone.
+- VFX Phase AJ is prepared to repair thrust VFX preview after Dealership Intro Phase 4 moved the local preview vehicle to `Workspace._NTR_ClientOnly.VehiclePreview`. Run `scripts/roblox_vfx_phaseAJ_thrust_preview_root_repair.lua` if thrust VFX no longer previews while editing thrust colour in the customisation menu.
+- Dealership Intro Phases 1-7 were installed and confirmed working by the user on 2026-06-03. The flow now uses editable dealership markers, opens the full garage only at `GarageDeskTrigger`, delays the local preview until cockpit purchase/select succeeds, restores preview orbit camera behavior, spawns the final drivable vehicle from `VehicleExitSpawnPoint`, and includes an Exit button that only reopens after the player leaves and re-enters the desk zone. Phase 8 is generated in Git as the next Studio install/test step: it replaces fixed path arrows with a dynamic client-only arrow tether to the desk and persists first desk-objective completion.
 - Phase 15 successfully moved live server action ownership to `ServerScriptService.NeoTokyoRacers.Services.Garage.GarageActionController_Shadow_Disabled`. The old `HOVER_RACING_V2_Server` remains available for rollback but is no longer the live server action owner.
 - `V74` restored the pre-V72/default Roblox driving camera feel and added a light camera assist. The user confirmed this worked well.
 - `V75` was generated next to add boost recharge delay and low-speed hover wobble. At the time of writing, no later user confirmation is present in this chat history.
@@ -39,7 +40,7 @@ Known from chat:
 Recommended baseline:
 
 - Server action owner baseline: `GarageActionController_Shadow_Disabled` is currently the tested live owner after Phase 15.
-- Dealership intro baseline: Phases 1-7 are the current tested startup/customisation flow. Use `docs/dealership-intro-flow-2026-06-03.md` before changing garage startup, preview timing, desk open behavior, or final vehicle spawn placement.
+- Dealership intro baseline: Phases 1-7 are the current tested startup/customisation flow. Phase 8 is prepared but needs Studio/DataStore play-test confirmation before treating it as stable. Use `docs/dealership-intro-flow-2026-06-03.md` before changing garage startup, preview timing, desk open behavior, objective persistence, or final vehicle spawn placement.
 - Use `scripts/roblox_hover_racing_v74_pre_v72_camera_assist.lua` if camera stability is the priority.
 - Use `scripts/roblox_hover_racing_v75_boost_delay_hover_wobble.lua` as the latest generated patch, then play-test fresh in Roblox Studio.
 - Use `scripts/roblox_character_sprint_controller_install.lua` to install or roll back the on-foot sprint controller. It writes tuning attributes under `ReplicatedStorage.NeoTokyoRacers.Shared.Config.CharacterMovement_EditAttributes`.
@@ -96,6 +97,7 @@ Recommended baseline:
 - Architecture Phase P garage runtime startup repair: `docs/architecture-phaseP-garage-runtime-startup-repair-2026-06-02.md`
 - Architecture Phase Q garage controller header repair: `docs/architecture-phaseQ-garage-controller-header-repair-2026-06-02.md`
 - Lighting Phase R FogColor property repair: `docs/lighting-phaseR-fogcolor-property-repair-2026-06-02.md`
+- VFX Phase AJ thrust preview root repair: `docs/vfx-phaseAJ-thrust-preview-root-repair-2026-06-05.md`
 - Vehicle Phase AI cockpit light system removal: `docs/vehicle-phaseAI-cockpit-light-system-removal-2026-06-03.md`
 - Dealership intro flow marker setup: `docs/dealership-intro-flow-2026-06-03.md`
 - Character sprint controller handoff: `docs/character-sprint-controller-2026-06-04.md`
